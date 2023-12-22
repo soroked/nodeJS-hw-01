@@ -41,31 +41,3 @@ async function invokeAction({ action, id, name, email, phone }) {
 }
 
 invokeAction(argv);
-
-
-
-// ============================== TESTS =============================
-
-async function listContactsTest() {
-  const contacts = await ContactsUtils.listContacts();
-  return console.log(contacts);
-}
-// listContactsTest();
-
-async function getContactByIdTest() {
-  const contact = await ContactsUtils.getContactById("drsAJ4SHPYqZeG-83QTVW");
-  return console.log(contact);
-}
-// getContactByIdTest();
-
-async function removeContactTest() {
-  const contact = await ContactsUtils.removeContact("qdggE76Jtbfd9eWJHrssH");
-  return console.log(contact);
-}
-// removeContactTest();
-
-async function addContactTest() {
-  const contact = await ContactsUtils.addContact("Test", "test@gmail.com", "123-123-12");
-  return console.log(contact);
-}
-// addContactTest();

@@ -1,16 +1,8 @@
 const fs = require('node:fs/promises');
 const path = require('node:path');
-const { randomUUID, randomBytes } = require('node:crypto'); // Added in: node v14.17.0
+const { randomBytes } = require('node:crypto'); // Added in: node v14.17.0
 
 const contactsPath = path.join(__dirname, "db", "contacts.json");
-const testPath = path.join(__dirname, "db", "test.json");
-
-const testContact = {
-  "id": "AeHIrLTr6JkxGE6SN-0Rw",
-  "name": "Allen Raymond",
-  "email": "nulla.ante@vestibul.co.uk",
-  "phone": "(992) 914-3792"
-};
 
 async function readContacts() {
   const contacts = await fs.readFile(contactsPath, { encoding: "utf-8" });
@@ -71,31 +63,3 @@ module.exports = {
   removeContact,
   addContact,
 }
-
-
-
-// ============================== TESTS =============================
-
-async function listContactsTest() {
-  const contacts = await listContacts();
-  return console.log(contacts);
-}
-// listContactsTest();
-
-async function getContactByIdTest() {
-  const contact = await getContactById("drsAJ4SHPYqZeG-83QTVW");
-  return console.log(contact);
-}
-// getContactByIdTest();
-
-async function removeContactTest() {
-  const contact = await removeContact("qdggE76Jtbfd9eWJHrssH");
-  return console.log(contact);
-}
-// removeContactTest();
-
-async function addContactTest() {
-  const contact = await addContact("Test", "test@gmail.com", "123-123-12");
-  return console.log(contact);
-}
-// addContactTest();
